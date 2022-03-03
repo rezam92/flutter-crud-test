@@ -33,4 +33,24 @@ class Customer extends Equatable {
 
   @override
   List<Object?> get props => [id, firstName, lastName, dateOfBirth, phoneNumber, email, bankAccountNumber];
+
+  Customer copyWith({
+    int? id,
+    String? firstName,
+    String? lastName,
+    int? dateOfBirth,
+    String? phoneNumber,
+    String? email,
+    String? bankAccountNumber,
+  }) {
+    return Customer(
+      id: id ?? this.id,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      dateOfBirth: dateOfBirth ?? this.dateOfBirth,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      email: email ?? this.email,
+      bankAccountNumber: bankAccountNumber ?? this.bankAccountNumber,
+    );
+  }
 }

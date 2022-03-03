@@ -18,7 +18,9 @@ class Application extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: BlocProvider(
-        create: (_) => CustomersListCubit(CustomerUseCase(customerRepo: RepoModule.getCustomerRepo)),
+        create: (_) =>
+            CustomersListCubit(CustomerUseCase(customerRepo: RepoModule.getCustomerRepo))
+              ..getCustomersList(),
         child: const CustomerListPage(),
       ),
     );

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:mc_crud_test/application/extenstion/string.dart';
+import 'package:mc_crud_test/application/extension/string.dart';
 import 'package:mc_crud_test/domain/entities/customre.dart';
 import 'package:mc_crud_test/presentation/bloc/create/create_user_cubit.dart';
 import 'package:phone_number/phone_number.dart';
@@ -82,12 +82,12 @@ class _CreateCustomerState extends State<CreateCustomer> {
                   TextFormField(
                     controller: firstNameController,
                     decoration: const InputDecoration(hintText: 'First Name'),
-                    validator: (String? v) => v.isValidLength() ? null : 'Not Valid First Name',
+                    validator: (String? v) => v.isValidString() ? null : 'Not Valid First Name',
                   ).padding(top: 10),
                   TextFormField(
                     controller: lastNameController,
                     decoration: const InputDecoration(hintText: 'Last Name'),
-                    validator: (String? v) => v.isValidLength(maxLength: 25) ? null : 'Not Valid Last Name',
+                    validator: (String? v) => v.isValidString(maxLength: 25) ? null : 'Not Valid Last Name',
                   ).padding(top: 10),
                   TextFormField(
                     readOnly: true,
@@ -126,7 +126,7 @@ class _CreateCustomerState extends State<CreateCustomer> {
                     controller: backAccountNumberController,
                     decoration: const InputDecoration(hintText: 'Bank Account Number'),
                     maxLength: 16,
-                    validator: (String? v) => v.isValidLength(maxLength: 16, minLength: 16) ? null : 'Not valid Account Number',
+                    validator: (String? v) => v.isValidString(maxLength: 16, minLength: 16) ? null : 'Not valid Account Number',
                   ).padding(top: 10),
                 ],
               ).padding(horizontal: 15),
