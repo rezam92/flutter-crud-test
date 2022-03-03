@@ -9,9 +9,7 @@ import 'package:mc_crud_test/domain/usecases/customers_usecase.dart';
 part 'customers_list_state.dart';
 
 class CustomersListCubit extends Cubit<CustomersListState> {
-  CustomersListCubit(this.customerUseCase) : super(CustomersListInitial()) {
-    getCustomersList();
-  }
+  CustomersListCubit(this.customerUseCase) : super(CustomersListInitial());
 
   final CustomerUseCase customerUseCase;
 

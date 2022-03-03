@@ -9,24 +9,9 @@ extension ExtString on String? {
     return emailRegExp.hasMatch(this!);
   }
 
-  bool isValidLength({int maxLength = 25, int minLength = 2}) {
+  bool isValidString({int maxLength = 25, int minLength = 2}) {
     if (this == null || this!.isEmpty || this!.length > maxLength || this!.length < minLength) return false;
     final nameRegExp = RegExp(r'^[a-zA-Z0-9]+$');
     return nameRegExp.hasMatch(this!);
-  }
-
-  Future<bool> get isValidPhone async {
-    if (this == null) return false;
-    String phone = this!.replaceAll('-', '');
-    phone = this!.replaceAll('(', '');
-    phone = this!.replaceAll(')', '');
-    phone = this!.replaceAll(' ', '');
-
-    try {
-      await PhoneNumberUtil().parse(phone);
-      return true;
-    } catch (e) {
-      return false;
-    }
   }
 }
